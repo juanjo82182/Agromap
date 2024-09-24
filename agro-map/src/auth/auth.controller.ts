@@ -1,5 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
+
+interface UserDTO{
+  nombre: string;
+  email: string;
+  contrasena: string;
+  telefono?: string;
+  direccion: string;
+}
 
 @Controller('auth')
 export class AuthController {
@@ -10,8 +18,13 @@ export class AuthController {
     return 'log-in';
   }
 
-  @Get('sign-up')
-  signUp(){
-    return 'sign-up';
+  @Get('users')
+  getUsers(){
+    return this.authService.getUsers();
+  }
+
+  @Post('sign-up')
+  signUp(@Body() user: UserDTO){
+    return this.authService.signUp(user.nombre,user.email,user.contrasena,user.telefono,user.direccion);
   }
 }
