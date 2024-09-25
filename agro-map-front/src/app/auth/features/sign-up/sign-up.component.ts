@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../data/auth.service';
 
 interface LoginForm{
   nombre: FormControl<string>;
@@ -18,9 +19,13 @@ interface LoginForm{
   styles: ``
 })
 export default class SignUpComponent {
-  
-  form: FormGroup<LoginForm>;
-  
+
+  private _authService = inject(AuthService);
+
+  private _router = inject(Router);
+
+   form: FormGroup<LoginForm>;
+
   constructor(private _formBuilder: FormBuilder){
       this.form = this._formBuilder.group<LoginForm>({
       nombre: this._formBuilder.nonNullable.control('', Validators.required),
@@ -32,6 +37,15 @@ export default class SignUpComponent {
   }
 
   submit(){
-    console.log(this.form.value);
+    if(this.form.invalid) return; 
+
+    const {nombre, email, contrasena, telefono, direccion} = this.form.getRawValue();
+
+    this._authService.signUp(nombre,email,contrasena,telefono,direccion).subscribe({
+      next: (response) => {
+        this._router.navigateByUrl('/dashboard');
+      },
+      error: (error) => console.log(error),
+    });
   }
 }
