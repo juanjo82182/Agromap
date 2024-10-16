@@ -1,5 +1,6 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 interface UserDTO{
   nombre: string;
@@ -19,6 +20,7 @@ export class AuthController {
     return this.authService.logIn(user.email,user.contrasena);
   }
 
+  @UseGuards(AuthGuard)
   @Get('users')
   getUsers(){
     return this.authService.getUsers();
