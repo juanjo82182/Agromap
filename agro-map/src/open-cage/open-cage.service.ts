@@ -11,7 +11,7 @@ export class OpenCageService {
   constructor(private readonly httpService: HttpService) {}
 
   geocodeAddress(address: string, city?: string): Observable<AxiosResponse<any>> {
-    const apiKey = 'b9ba938ec92a4817bd97fca657aa294e';  // Reemplaza con tu clave de API de OpenCage
+    const apiKey = process.env.API_KEY1;  // Reemplaza con tu clave de API de OpenCage
 
     const fullAddress = city ? `${address}, ${city}, Colombia` : `${address}, Colombia`;
 

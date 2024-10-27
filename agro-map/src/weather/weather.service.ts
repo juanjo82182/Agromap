@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class WeatherService {
-  private readonly apiKey = '14370c125ce54965a5a33423242310'; 
+  private readonly Api_Key2 = process.env.API_KEY2; 
   private readonly apiUrl = 'http://api.weatherapi.com/v1/current.json';
 
   constructor(private readonly httpService: HttpService) {}
@@ -15,7 +15,7 @@ export class WeatherService {
       const lat = convertDMSToDecimal(dmsLat);  // Convierte la latitud a decimal
       const lon = convertDMSToDecimal(dmsLng);  // Convierte la longitud a decimal
 
-      const url = `${this.apiUrl}?key=${this.apiKey}&q=${lat},${lon}`;
+      const url = `${this.apiUrl}?key=${this.Api_Key2}&q=${lat},${lon}`;
 
       return this.httpService.get(url).pipe(
         map(response => response.data)
