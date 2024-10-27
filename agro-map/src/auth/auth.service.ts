@@ -50,7 +50,7 @@ export class AuthService {
         return await this.prismaService.usuarios.findMany();
     }
 
-    async signUp(nombre: string, email: string, contrasena: string, telefono?: string, direccion?: string){
+    async signUp(nombre: string, email: string, contrasena: string, direccion: string, ciudad: string, telefono?: string){
         try {
             const userFound = await this.prismaService.usuarios.findUnique({
                 where: {
@@ -69,6 +69,7 @@ export class AuthService {
                     contrasena: hashedPassword,
                     telefono,
                     direccion,
+                    ciudad,
                 }
             });
 

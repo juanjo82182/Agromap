@@ -1,42 +1,43 @@
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img class="w-20 h-20 mr-2" src="agromap.png" alt="logo">
-              
-        </a>
-        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                    Crea tu Cuenta
-                </h1>
-                <form class="space-y-4 md:space-y-6" [formGroup]="form" (ngSubmit)="submit()">
-                    <div>
-                        <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
-                        <input type="text" name="nombre" id="nombre" formControlName="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" name="email" id="email" formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" >
-                    </div>
-                    <div>
-                        <label for="contrasena" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="contrasena" id="contrasena" formControlName="contrasena" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
-                    </div>
-                    <div>
-                        <label for="telefono" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your telephone</label>
-                        <input type="text" name="telefono" id="telefono" formControlName="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
-                    </div>
-                    <div>
-                        <label for="direccion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your address</label>
-                        <input type="text" name="direccion" id="direccion" formControlName="direccion" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
-                    </div>
-                    
-                    <button type="submit" [disabled]="form.invalid" class="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Crear</button>
-                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Ya tienes una cuenta? <a routerLink="/auth/log-in" class="font-medium text-green-600 hover:underline dark:text-green-500">Iniciar Sesion</a>
-                    </p>
-                </form>
-            </div>
-        </div>
+<section class="section-background">
+    <div class="registration-container">
+      <a href="#" class="registration-header">
+        <img class="logo" src="Logo2.png" alt="logo">
+        AGROMAP
+      </a>
+      <div class="registration-card">
+        <h1 class="registration-title">Crea tu Cuenta</h1>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div>
+            <label for="nombre" class="label">Tu Nombre</label>
+            <input type="text" id="nombre" formControlName="nombre" class="form-field" />
+          </div>
+          <div>
+            <label for="email" class="label">Tu Correo</label>
+            <input type="email" id="email" formControlName="email" placeholder="nombre@gmail.com" class="form-field" />
+          </div>
+          <div>
+            <label for="contrasena" class="label">Contraseña</label>
+            <input type="password" id="contrasena" formControlName="contrasena" placeholder="••••••••" class="form-field" />
+          </div>
+          <div>
+            <label for="telefono" class="label">Tu Telefono</label>
+            <input type="text" id="telefono" formControlName="telefono" class="form-field" />
+          </div>
+          <div>
+            <label for="direccion" class="label">Tu Direccion</label>
+            <input type="text" id="direccion" formControlName="direccion" class="form-field" />
+          </div>
+          <div>
+            <label for="ciudad" class="label">Tu Ciudad</label>
+            <input type="text" id="ciudad" formControlName="ciudad" class="form-field" />
+          </div>
+          <button type="submit" class="register-button">Registrarse</button>
+          <p class="link">
+            Ya tienes una cuenta? 
+            <a class="signup-link" routerLink="/auth/log-in">Iniciar Sesion</a>
+          </p>
+        </form>
+      </div>
     </div>
+    <div class="footer-u-shape"></div>
   </section>

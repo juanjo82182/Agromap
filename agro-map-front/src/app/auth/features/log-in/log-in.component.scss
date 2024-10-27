@@ -1,0 +1,138 @@
+/* Fondo de pantalla para el contenedor principal */
+.section-background {
+    background-image: url('img/fondo1.jpg'); 
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    padding-top: 5vh; 
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 128, 0, 0.3); /* Capa verde transparente */
+      z-index: 1;
+    }
+  }
+  
+  /* Contenedor principal */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  /* Estilos de la tarjeta de inicio de sesión */
+  .login-card {
+    width: 110%;
+    max-width: 400px; /* Reduce el ancho */
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Encabezado de la tarjeta */
+  .login-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    width: 64px;
+    height: 64px;
+    margin-right: 0.5rem;
+  }
+  
+  /* Títulos y etiquetas */
+  .login-title {
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    color: #002702;
+    margin-bottom: 1rem;
+  }
+
+  .label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: #030303;
+  }
+  
+  /* Campos de entrada */
+  .form-field {
+    width: 100%;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 0.875rem;
+    &:focus {
+      border-color: #2a9d8f;
+      outline: none;
+      background-color: #fff;
+    }
+  }
+  
+  /* Botón de envío */
+  .submit-button {
+    width: 100%;
+    padding: 0.3rem;
+    background-color: #80af27;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px; 
+    cursor: pointer;
+    margin-bottom: 1.5rem; 
+    font-size: 0.875rem;
+    &:hover {
+      background-color: #13a30f;
+    }
+  }
+  
+  /* Enlace a registro */
+  .signup-link {
+    font-size: 0.875rem;
+    color: #80af27;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .link{
+    font-size: 0.875rem;
+  }
+  
+  .footer-u-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35vh;
+    background-color: #002702; 
+    clip-path: polygon(0 100%, 100% 100%, 100% 80%, 
+                        90% 85%, 75% 90%, 
+                        50% 95%, 
+                        25% 90%, 10% 85%, 
+                        0 80%);
+  }

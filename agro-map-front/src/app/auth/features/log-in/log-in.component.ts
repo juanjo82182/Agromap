@@ -14,7 +14,7 @@ interface LoginForm{
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './log-in.component.html',
-  styles: ``
+  styleUrl: './log-in.component.scss'
 })
 export default class LogInComponent {
   

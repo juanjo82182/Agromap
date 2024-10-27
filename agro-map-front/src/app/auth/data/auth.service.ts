@@ -15,8 +15,8 @@ export class AuthService{
 
     constructor(){}
 
-    signUp(nombre: string, email: string, contrasena: string, telefono: string, direccion: string): Observable<any>{
-        return this._http.post(`${environment.API_URL}/auth/sign-up`,{nombre, email, contrasena, telefono, direccion}).pipe(tap((response) => {
+    signUp(nombre: string, email: string, contrasena: string, telefono: string, direccion: string, ciudad: string): Observable<any>{
+        return this._http.post(`${environment.API_URL}/auth/sign-up`,{nombre, email, contrasena, telefono, direccion, ciudad}).pipe(tap((response) => {
             this._storage.set('session', JSON.stringify(response))
         } ));
     }

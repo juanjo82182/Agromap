@@ -8,6 +8,7 @@ interface UserDTO{
   contrasena: string;
   telefono?: string;
   direccion: string;
+  ciudad: string;
 }
 
 @Controller('auth')
@@ -29,6 +30,6 @@ export class AuthController {
   @HttpCode(HttpStatus.CREATED)
   @Post('sign-up')
   signUp(@Body() user: UserDTO){
-    return this.authService.signUp(user.nombre,user.email,user.contrasena,user.telefono,user.direccion);
+    return this.authService.signUp(user.nombre,user.email,user.contrasena,user.telefono,user.direccion,user.ciudad);
   }
 }

@@ -9,6 +9,7 @@ interface LoginForm{
   contrasena: FormControl<string>;
   telefono: FormControl<string>;
   direccion: FormControl<string>;
+  ciudad: FormControl<string>;
 }
 
 @Component({
@@ -16,7 +17,7 @@ interface LoginForm{
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
-  styles: ``
+  styleUrl: './sign-up.component.scss'
 })
 export default class SignUpComponent {
 
@@ -33,15 +34,16 @@ export default class SignUpComponent {
       contrasena: this._formBuilder.nonNullable.control('', Validators.required),
       telefono: this._formBuilder.nonNullable.control(''),
       direccion: this._formBuilder.nonNullable.control('', Validators.required),
+      ciudad: this._formBuilder.nonNullable.control('', Validators.required),
     });
   }
 
   submit(){
     if(this.form.invalid) return; 
 
-    const {nombre, email, contrasena, telefono, direccion} = this.form.getRawValue();
+    const {nombre, email, contrasena, telefono, direccion,ciudad} = this.form.getRawValue();
 
-    this._authService.signUp(nombre,email,contrasena,telefono,direccion).subscribe({
+    this._authService.signUp(nombre,email,contrasena,telefono,direccion,ciudad).subscribe({
       next: (response) => {
         this._router.navigateByUrl('/dashboard');
       },
