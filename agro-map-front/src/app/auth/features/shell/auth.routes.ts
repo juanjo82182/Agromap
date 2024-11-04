@@ -10,6 +10,10 @@ export default [
         loadComponent: () => import('../sign-up/sign-up.component'),
     },
     {
+        path: 'restablecer-contrasena',
+        loadComponent: () => import('../reset-pass/restablecer-contrasena.component'),
+    },
+    {
         path: '**',
         redirectTo: 'log-in',
     },

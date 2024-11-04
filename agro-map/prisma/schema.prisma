@@ -8,11 +8,39 @@ datasource db {
 }
 
 model usuarios {
-  id_usuario Int     @id @default(autoincrement())
-  nombre     String  @db.VarChar(100)
-  email      String  @unique @db.VarChar(255)
-  contrasena String  @db.VarChar(255)
-  telefono   String? @db.VarChar(20)
-  direccion  String  @db.VarChar(255)
-  ciudad     String  @db.VarChar(100)
+  id_usuario    Int     @id @default(autoincrement())
+  nombre        String  @db.VarChar(100)
+  email         String  @unique @db.VarChar(255)
+  contrasena    String  @db.VarChar(255)
+  telefono      String? @db.VarChar(20)
+  direccion     String  @db.VarChar(255)
+  ciudad        String  @db.VarChar(100)
+  codigo_postal String? @db.VarChar(20)
+  clima         clima[]
+}
+
+model clima {
+  id            Int      @id @default(autoincrement())
+  temperatura   Float?
+  condicion     String?  @db.VarChar
+  humedad       Float?
+  viento        Float?
+  presion       Float?
+  visibilidad   Float?
+  precipitacion Float?
+  recomendacion String?  @db.VarChar
+  usuario_id    Int
+  fechaCreacion DateTime @default(now())
+  usuarios      usuarios @relation(fields: [usuario_id], references: [id_usuario], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model recomendaciones {
+  id              Int     @id @default(autoincrement())
+  cultivo         String  @db.VarChar(100)
+  temperatura_min Float?
+  temperatura_max Float?
+  humedad_min     Float?
+  humedad_max     Float?
+  condiciones     String? @db.VarChar(255)
+  descripcion     String?
 }

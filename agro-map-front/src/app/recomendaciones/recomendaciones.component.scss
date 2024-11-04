@@ -1,0 +1,132 @@
+.hero-section {
+    background-image: url('/img_recomendaciones/fondo.jpg');
+    background-size: cover; // Para que la imagen no se recorte
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px; // Ajusta la altura según sea necesario
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; // Centrado horizontal en el inicio
+    padding-left: 3.5rem; // Espaciado desde el lado izquierdo
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(1, 92, 31, 0.5); // Oscurece el fondo
+      z-index: 1;
+    }
+    clip-path: path('M0,290L48,275C96,260,192,240,288,235C384,230,480,240,576,250C672,260,768,265,864,255C960,245,1056,230,1152,230C1248,230,1344,255,1392,270L1440,290L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z');
+    overflow: hidden;
+  }
+  
+  .overlay {
+    position: relative;
+    z-index: 1; 
+    padding-bottom: 100px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 600; 
+    color: white;
+    margin-bottom: 1rem;
+  
+    span {
+      font-weight: 250; 
+      color: white; 
+    }
+  }
+  
+  .hero-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5rem;
+    background-color: #80af27;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-align: center;
+  
+    &:hover {
+      background-color: #13a30f;
+    }
+  }
+
+  .footer-u-shape {
+    position: relative;
+    height: 30vh; /* Altura del footer */
+    background-color: transparent; /* Fondo transparente para el SVG */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    flex-direction: column; /* Organiza el contenido en columnas */
+    justify-content: flex-end; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Alinea el texto al centro */
+    color: white; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    margin: 0; /* Elimina márgenes */
+    z-index: 1; /* Asegura que el texto esté por encima del SVG */
+    padding: 20px;
+}
+
+.footer-svg {
+    position: absolute; /* Coloca el SVG en la parte superior */
+    bottom: 0; /* Asegúrate de que esté alineado al fondo del footer */
+    left: 0;
+    right: 0; /* Asegúrate de que ocupe todo el ancho */
+}
+
+.footer-u-shape p {
+    margin: 0; /* Elimina el margen predeterminado del párrafo */
+    position: relative; /* Permite que el texto se posicione correctamente sobre el SVG */
+    z-index: 2; /* Asegura que el texto esté por encima del SVG */
+}
+
+.recomendaciones-section {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+
+  .container {
+    display: flex;
+    max-width: 1200px;
+    background: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .map-container {
+    width: 50%;
+    #map {
+      width: 100%;
+      height: 500px; 
+    }
+  }
+
+  .info-container {
+    width: 50%;
+    padding: 2rem;
+    background: #f7f7f7;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0.5rem 0;
+    }
+  }
+}

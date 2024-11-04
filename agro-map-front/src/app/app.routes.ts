@@ -13,6 +13,16 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/dashboard.component'),
     },
     {
+        path: 'recomendaciones',
+        canActivate: [privateGuard()],
+        loadComponent: () => import('./recomendaciones/recomendaciones.component'),
+    },
+    {
+        path: 'soporte',
+        canActivate: [privateGuard()],
+        loadComponent: () => import('./soporte/soporte.component'),
+    },
+    {
         path: '**',
         redirectTo: 'dashboard',
     },

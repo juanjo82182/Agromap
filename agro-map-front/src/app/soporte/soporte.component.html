@@ -1,1 +1,113 @@
-<p>soporte works!</p>
+<nav class="bg-gradient-to-r  dark:bg-white antialiased">
+    <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+      <div class="flex items-center justify-between">
+  
+          <!-- Logo -->
+      <div class="flex items-center space-x-10">
+        <div class="flex items-center space-x-0">
+          <div class="shrink-0">
+            <a routerLink="/" title="">
+              <img class="flex w-18 h-14 dark:block" src="logo.png" alt="Logo de Quotemind"> 
+            </a>
+          </div>
+          
+        </div>
+  
+          <!-- Menú principal (pantallas grandes) -->
+          
+          <ul class="inline-flex lg:flex items-center justify-start gap-6 md:gap-8 py-3 ">
+            <li><a routerLink="/dashboard" class="text-sm font-medium  text-gray-900 hover:text-primary-700 dark:text-green">Inicio</a></li>
+            <li><a routerLink="/recomendaciones" class="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-green">Recomendaciones</a></li>
+            <li><a routerLink="/soporte" class="text-sm font-medium border-b-2  text-gray-900 hover:text-primary-700 dark:text-green">Soporte</a></li>
+          </ul>
+        </div>
+  
+        <!-- Dropdown de usuario y menú colapsable (pantallas pequeñas) -->
+        <div class="relative items-center lg:space-x-2">
+  
+          <!-- Botón de dropdown -->
+          <button (click)="toggleDropdown()" class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-green-100 dark:hover:bg-green-700 text-sm font-medium text-gray-900 dark:text-green">
+            <svg class="w-5 h-5 me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+            Account
+            <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-width="2" d="m19 9-7 7-7-7"/>
+            </svg> 
+          </button>
+  
+          <!-- Dropdown de usuario -->
+          <div *ngIf="isDropdownOpen" class="absolute right-0 z-10 w-56  divide-y divide-green-100 bg-white dark:bg-green-700 rounded-lg shadow">
+            <ul class="p-2 text-sm text-gray-900 dark:text-white">
+              <li><a href="#" (click)="signOut()" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">Sign Out</a></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+    <section class="hero-section">
+      <div class="overlay">
+        <h1 class="hero-title">Soporte<span> tecnico</span></h1>
+      </div>
+    </section>
+
+
+    <section class="contact-section">
+        <div class="container">
+            <!-- Formulario de contacto -->
+            <div class="form-container">
+              <form [formGroup]="form" (ngSubmit)="enviarFormulario()">
+                <h2>¿Necesitas ayuda?</h2>
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" id="nombre" formControlName="nombre" required>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Número de teléfono:</label>
+                  <input type="tel" id="telefono" formControlName="telefono" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo electrónico:</label>
+                  <input type="email" id="email" formControlName="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="mensaje">Mensaje:</label>
+                  <textarea id="mensaje" formControlName="mensaje" rows="4" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+              </form>
+            </div>
+
+            <!-- Datos de contacto -->
+            <div class="contact-info">
+                <h2>Ó te contáctamos</h2>
+                <h1>Te ayudamos</h1>
+                <br>
+                <div class="info-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="green">
+                        <path d="M22 16.92V20A2 2 0 0 1 20 22 18 18 0 0 1 2 4 2 2 0 0 1 4 2H7.09a1 1 0 0 1 1 .76 13.34 13.34 0 0 0 .7 2.42 1 1 0 0 1-.23 1.05L7.2 7.71a16 16 0 0 0 8.09 8.09l1.48-1.35a1 1 0 0 1 1.05-.23 13.34 13.34 0 0 0 2.42.7 1 1 0 0 1 .76 1z"></path>
+                    </svg>
+                    <p>Teléfono: +57 3122469899</p>
+                </div>
+                <div class="info-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="green">
+                        <path d="M22 4H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-1 2-9 6.56L3 6zm-8.21 7.79a1 1 0 0 0 1.42 0L21 8.14V18H3V8.14z"></path>
+                    </svg>
+                    <p>Correo electrónico: agromap.pcjic&#64;gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer class="footer-u-shape">
+        <svg viewBox="0 0 1440 320"  class="footer-svg">
+            <path d="M0,160L120,181.3C240,203,480,245,720,245.3C960,245,1200,203,1320,181.3L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" fill="#002702"></path>
+        </svg>
+        <p>&copy; Agromap. Todos los derechos reservados 2024.</p>
+      </footer>
+      

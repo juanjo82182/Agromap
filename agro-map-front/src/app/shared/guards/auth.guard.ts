@@ -14,7 +14,7 @@ export const privateGuard = (): CanActivateFn => {
         }
 
         router.navigateByUrl('/auth/log-in');
-        return true;
+        return false;
     };
 };
 

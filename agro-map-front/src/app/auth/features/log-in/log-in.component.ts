@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../data/auth.service';
+import { CommonModule } from '@angular/common';
 
 
 interface LoginForm{
@@ -12,7 +13,7 @@ interface LoginForm{
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.scss'
 })
@@ -38,7 +39,10 @@ export default class LogInComponent {
       next: (response) => {
         this._router.navigateByUrl('/dashboard');
       },
-      error: (error) => console.log(error),
+      error: (error) => {
+        this.form.reset();
+        alert('Usuario o contraseña incorrecta');
+      },
     });
   }
 }

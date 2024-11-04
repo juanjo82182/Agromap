@@ -10,7 +10,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
   standalone: true,
   imports: [RouterLink,CommonModule,ReactiveFormsModule],
   templateUrl: './dashboard.component.html',
-  styles: ``
+  styleUrl: './dashboard.component.scss'
 })
 export default class DashboardComponent {
 

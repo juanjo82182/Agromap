@@ -1,0 +1,38 @@
+<section class="section-background">
+    <div class="reset-container">
+      <a href="#" class="reset-header">
+        <img class="logo" src="Logo2.png" alt="logo">
+        AGROMAP
+      </a>
+      <div class="reset-card">
+        <h1 class="reset-title">Restablecer Contraseña</h1>
+        <!-- Formulario de Email (Paso 1) -->
+    <form *ngIf="pasoActual === 1" [formGroup]="formEmail" (ngSubmit)="enviarCodigoRestablecimiento()">
+      <label class="label" for="email">Correo electrónico</label>
+      <input  class="form-field" type="email" id="email" formControlName="email" placeholder="nombre@correo.com" />
+      <div *ngIf="formEmail.get('email')?.invalid && (formEmail.get('email')?.touched || formEmail.get('email')?.dirty)">
+        <small *ngIf="formEmail.get('email')?.errors?.['required']">El correo electrónico es obligatorio.</small>
+        <small *ngIf="formEmail.get('email')?.errors?.['email']">El formato del correo electrónico es inválido.</small>
+      </div>
+      <button class="submit-button" type="submit">Enviar Código</button>
+      <a class="button1" routerLink="/auth/log-in">Atras</a>
+    </form>
+  
+    <!-- Formulario de Código (Paso 2) -->
+    <form *ngIf="pasoActual === 2" [formGroup]="formCodigo" (ngSubmit)="verificarCodigo()">
+      <label class="label" for="codigo">Código de Restablecimiento</label>
+      <input  class="form-field"  type="text" id="codigo" formControlName="codigo" placeholder="Ingresa el código recibido" />
+      <button class="submit-button" type="submit">Verificar Código</button>
+    </form>
+  
+    <!-- Formulario de Nueva Contraseña (Paso 3) -->
+    <form *ngIf="pasoActual === 3" [formGroup]="formNuevaContrasena" (ngSubmit)="restablecerContrasena()">
+      <label class="label" for="nuevaContrasena">Nueva Contraseña</label>
+      <input  class="form-field" type="password" id="nuevaContrasena" formControlName="nuevaContrasena" placeholder="Nueva Contraseña" />
+      <button class="submit-button" type="submit">Restablecer Contraseña</button>
+    </form>
+
+      </div>
+    </div>
+    <div class="footer-u-shape"></div>
+</section>

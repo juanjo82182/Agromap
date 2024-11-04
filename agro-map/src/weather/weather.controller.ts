@@ -6,7 +6,7 @@ export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
   @Get('current')
-  getCurrentWeather(@Query('lat') lat: string, @Query('lon') lon: string) {
+  getCurrentWeather(@Query('lat') lat: number, @Query('lon') lon: number) {
     return this.weatherService.getWeatherByCoordinates(lat, lon);
   }
 }

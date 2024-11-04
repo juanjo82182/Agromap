@@ -119,6 +119,15 @@
     }
   }
 
+  .reset-link {
+    font-size: 0.875rem;
+    color: #007a0b;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .link{
     font-size: 0.875rem;
   }

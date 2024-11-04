@@ -16,6 +16,10 @@
             placeholder="nombre@gmail.com"
             class="form-field"
           />
+          <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
+            <small *ngIf="form.get('email')?.errors?.['required']">El correo electrónico es obligatorio.</small>
+            <small *ngIf="form.get('email')?.errors?.['email']">El formato del correo electrónico es inválido.</small>
+          </div>
         </div>
         <div>
           <label for="contrasena" class="label">Contraseña</label>
@@ -26,10 +30,17 @@
             placeholder="••••••••"
             class="form-field"
           />
+          <div *ngIf="form.get('contrasena')?.invalid && (form.get('contrasena')?.touched || form.get('contrasena')?.dirty)">
+            <small *ngIf="form.get('contrasena')?.errors?.['required']">La contraseña es obligatoria.</small>
+          </div>
         </div>
         <button type="submit" class="submit-button">Iniciar sesion  ></button>
         <p class="link">
-          Aún no tienes una cuenta? 
+          ¿Olvidaste tu contraseña? 
+          <a class="reset-link" routerLink="/auth/restablecer-contrasena">Recuperar contraseña</a>
+        </p>
+        <p class="link">
+         ¿Aún no tienes una cuenta? 
           <a class="signup-link" routerLink="/auth/sign-up">Crear cuenta</a>
         </p>
       </form>
