@@ -7,7 +7,7 @@ export class IaController {
     constructor(private readonly iaService: IaService) {}
 
     @Post('predecir')
-    async predecir(@Body() datos: { temperatura: number, humedad: number, viento: number, presion: number, precipitacion: number }) {
+    async predecir(@Body() datos: {usuarioId:number, temperatura: number, humedad: number, viento: number, presion: number, precipitacion: number }) {
         return await this.iaService.ejecutarModelo(datos);
     }
 }

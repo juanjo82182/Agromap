@@ -20,8 +20,11 @@ try:
      # Configuración de base de datos
     engine = create_engine(database_url)
 
+    input_data = json.loads(sys.argv[1])
+    usuario_id = input_data['usuarioId']
+
     # Cargar datos de la tabla clima
-    clima_data = pd.read_sql("SELECT * FROM clima WHERE recomendacion IS NOT NULL", engine)
+    clima_data = pd.read_sql(f"SELECT * FROM clima WHERE usuario_id = {usuario_id} AND recomendacion IS NOT NULL", engine)
     
     # Cargar datos de la tabla recomendaciones
     recomendaciones_data = pd.read_sql("SELECT * FROM recomendaciones", engine)
@@ -29,7 +32,7 @@ try:
     # Verificar si hay suficientes registros
     if len(clima_data) < 100:  
         # Obtener las condiciones climáticas de entrada
-        input_data = json.loads(sys.argv[1])
+
         entrada = [
             input_data['temperatura'],
             input_data['humedad'],

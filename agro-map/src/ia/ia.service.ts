@@ -4,7 +4,7 @@ import { spawn } from 'child_process';
 
 @Injectable()
 export class IaService {
-    async ejecutarModelo(datos: { temperatura: number, humedad: number, viento: number, presion: number, precipitacion: number }): Promise<any> {
+    async ejecutarModelo(datos: { usuarioId:number , temperatura: number, humedad: number, viento: number, presion: number, precipitacion: number }): Promise<any> {
         const pythonScriptPath = join(__dirname, '..', 'python_scripts', 'modelo_ia.py');
         
         return new Promise((resolve, reject) => {

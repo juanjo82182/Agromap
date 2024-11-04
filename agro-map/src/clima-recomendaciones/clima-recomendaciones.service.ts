@@ -19,6 +19,7 @@ export class ClimaRecomendacionesService {
     
           // Guardar datos de clima en la base de datos y obtener recomendación
           const datos = {
+            usuarioId: usuarioId,
             temperatura: climaData.current.temp_c,
             humedad: climaData.current.humidity,
             viento: climaData.current.wind_kph,
