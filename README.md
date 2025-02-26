@@ -1,6 +1,6 @@
 # Agromap
 Portal de Asistencia Agrícola: Optimización de Cultivos a Partir de la Ubicación Geográfica y Datos Climáticos
-Nestjs,Angular y PostgreSQL
+(Nestjs,Angular y PostgreSQL)
 
 # 📌 Importante: 
 Este proyecto se encuentra en la rama `master`.  
