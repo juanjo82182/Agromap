@@ -71,7 +71,7 @@ export default class RecomendacionesComponent {
 
   initializeMap(latitud: number, longitud: number, direccion: string, ciudad: string, codigoPostal: string) {
     const loader = new Loader({
-      apiKey: 'AIzaSyAJaRLRBfn-LwrrMYuHKEGRFaE4IZ0zmZQ',
+      apiKey: 'Tu api key',
       version: 'weekly',
     });
     
